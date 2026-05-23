@@ -1,4 +1,4 @@
-# TaskFlow Pro
+# my ClickUp
 
 A full-featured, team-based task management application built with **Angular 21**.  
 Organize your team's work with projects, tasks, Kanban boards, and real-time comment threads — all in one place.
