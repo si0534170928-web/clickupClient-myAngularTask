@@ -29,7 +29,7 @@ export class Dashboard {
   
   // קבלת שם המשתמש
   get userName() {
-    const user = this.authService.getCurrentUser()();
+    const user = this.authService.currentUser();
     return user?.name || 'Guest';
   }
 }

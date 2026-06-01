@@ -50,7 +50,7 @@ export class Teams {
   }
 
   canAddMembers(): boolean {
-    const user = this.authService.getCurrentUser()();
+    const user = this.authService.currentUser();
     // Allow global admins to add members to any team
     return user?.role === 'admin';
   }

@@ -34,10 +34,10 @@ export class App {
   
   private authService = inject(AuthService);
   private router = inject(Router);
-  protected isAuthorized = this.authService.isAuthorized;
+  protected isAuthenticated = this.authService.isAuthenticated;
 
   getCurrentUserName(): string {
-    return this.authService.getCurrentUser()()?.name || 'User';
+    return this.authService.currentUser()?.name || 'User';
   }
 
   toggleSidebar(): void {
@@ -45,7 +45,7 @@ export class App {
   }
 
   logout(): void {
-    this.authService.logout();
+    this.authService.logout().subscribe();
     this.router.navigate(['/auth/login']);
   }
 }

@@ -28,7 +28,7 @@ export class Tasks {
   isLoading = this.tasksService.isLoading;
   
   // Display current user info and filtering status
-  currentUser = this.authService.getCurrentUser();
+  currentUser = this.authService.currentUser;
   canSeeAllTasks = this.tasksService.canSeeAllTasks();
 
   constructor() {

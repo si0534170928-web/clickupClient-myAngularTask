@@ -23,7 +23,7 @@ export class TasksService {
 
   // Computed signal to check if current user is a team leader
   private isTeamLeader = computed(() => {
-    const user = this.authService.getCurrentUser()();
+    const user = this.authService.currentUser();
     if (!user) return false;
     
     // Check if user has global admin/manager role (non-default role)
@@ -38,7 +38,7 @@ export class TasksService {
   // Role-based filtered tasks - show only assigned tasks for regular users, all for leaders
   private filteredTasks = computed(() => {
     const allTasks = this._tasks();
-    const user = this.authService.getCurrentUser()();
+    const user = this.authService.currentUser();
     const isLeader = this.isTeamLeader();
     
     if (!user || isLeader) {
@@ -107,7 +107,7 @@ export class TasksService {
   // Debug helper - get filtering info (can be removed in production)
   getFilteringInfo() {
     return computed(() => {
-      const user = this.authService.getCurrentUser()();
+      const user = this.authService.currentUser();
       const isLeader = this.isTeamLeader();
       const allTasksCount = this._tasks().length;
       const filteredTasksCount = this.filteredTasks().length;

@@ -16,7 +16,7 @@ export class UserMenu {
   showMenu = signal(false);
 
   get user() {
-    return this.authService.getCurrentUser()();
+    return this.authService.currentUser();
   }
 
   get userInitial() {
@@ -28,7 +28,7 @@ export class UserMenu {
   }
 
   logout() {
-    this.authService.logout();
+    this.authService.logout().subscribe();
     this.showMenu.set(false);
     this.router.navigate(['/auth/login']);
   }
